@@ -7,8 +7,13 @@ o = {}
 a = require("ascii-art")
 b = "hi"
 const createCard = function(corner, color) {
-	console.log(a.style("|------|\n" + "|"+ corner +"     |\n|      |\n|      |\n"+ "|     "+ corner  + "|\n|------|", (color + "_bg")))
-	console.log("\n")
+	// console.log(a.style("|------|\n" + "|"+ corner +"     |\n|      |\n|      |\n"+ "|     "+ corner  + "|\n|------|", (color + "_bg")))
+	console.log(a.style("|------|"(color + "_bg")))
+	if (!(corner == "draw")) {console.log(a.style("|"+ corner +"     |", (color + "_bg")))} else {console.log(a.style("|+4    |", (color + "_bg")))}
+	console.log(a.style("|      |", (color + "_bg")))
+	console.log(a.style("|      |", (color + "_bg")))
+	if (!(corner == "draw")) {console.log(a.style("|     "+ corner +"|", (color + "_bg")))} else {console.log(a.style("|    +4|", (color + "_bg")))}
+	console.log(a.style("|------|", (color + "_bg")))
 	console.log(a.style("\n", "black_bg"))
 }
 rl = r.createInterface({
