@@ -4,13 +4,12 @@ pc = -1
 cw = true
 cards = []
 o = {}
+a = require("ascii-art")
+b = "hi"
 const createCard = function(corner, color) {
-	console.log("|------|")
-	console.log("|"+ color +"     |")
-	console.log("|  " +corner+"   |")
-	console.log("|   " +corner+"  |")
-	console.log("|     "+ color +"|")
-	console.log("|------|")
+	console.log(a.style("|------|\n" + "|"+ corner +"     |\n|      |\n|      |\n"+ "|     "+ corner  + "|\n|------|", (color + "_bg")))
+	console.log("\n")
+	console.log(a.style("\n", "black_bg"))
 }
 rl = r.createInterface({
 	input: process.stdin,
@@ -45,7 +44,7 @@ q = function() {
 		cards.push(a)
 		a = a.split(" ")
 		console.log(p[pc] + " placed a " + a[0] + " " + a[1] + ". " + p[pc] + " has " + o[p[pc]].cards + " cards left.")
-		createCard(a[0].charAt(0), a[1])
+		createCard(a[1], a[0])
 		if (o[p[pc]].cards == 0) {
 		fig.text((p[pc] + " wins!"), {font: "Doh"}, function(e, r) {
 			if (e) console.log(e)
@@ -57,6 +56,8 @@ q = function() {
 		}
 		if (a[0] == "draw") {
 	if (cw) {pc++} else {pc--}
+	if (pc > p.length - 1) pc = 0
+	if (pc == -1) pc = p.length -1
 			o[p[pc]].cards += 4
 			console.log(p[pc] + " now has " + o[p[pc]].cards + " cards")
 	if (cw) {pc--} else {pc++}
