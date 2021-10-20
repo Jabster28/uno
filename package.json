@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "ascii-art": "^1.5.1",
-    "cli-interact": "^0.1.9",
-    "figlet": "^1.2.1",
-    "question": "^0.0.1"
+    "ascii-art": "1.5.1",
+    "cli-interact": "0.1.9",
+    "figlet": "1.5.2",
+    "question": "0.0.1"
   }
 }
